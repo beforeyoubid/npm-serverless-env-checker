@@ -6,6 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "bin": {
+    "@beforeyoubid/serverless-env-check": "bin/checker.js",
+    "serverless-env-check": "bin/checker.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/beforeyoubid/npm-env-variable-checker.git"
@@ -16,5 +20,10 @@
   "bugs": {
     "url": "https://github.com/beforeyoubid/npm-env-variable-checker/issues"
   },
-  "homepage": "https://github.com/beforeyoubid/npm-env-variable-checker#readme"
+  "homepage": "https://github.com/beforeyoubid/npm-env-variable-checker#readme",
+  "dependencies": {
+    "arg": "^5.0.1",
+    "esm": "^3.2.25",
+    "inquirer": "^8.2.0"
+  }
 }
