@@ -1,0 +1,1 @@
+# npm-env-variable-checker
