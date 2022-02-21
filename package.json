@@ -1,5 +1,5 @@
 {
-  "name": "npm-serverless-env-checker",
+  "name": "@beforeyoubid/serverless-env-checker",
   "version": "1.0.0",
   "description": "Checks env. variable size of packaged Serverless env. variables. Designed for CI/CD",
   "main": "index.js",
