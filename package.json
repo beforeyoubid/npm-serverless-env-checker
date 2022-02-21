@@ -17,7 +17,13 @@
     "type": "git",
     "url": "git+https://github.com/beforeyoubid/npm-serverless-env-checker.git"
   },
-  "keywords": [],
+  "keywords": [
+    "serverless",
+    "cli",
+    "environment",
+    "variables",
+    "lambda"
+  ],
   "author": "Mitchell Browne - Before You Bid",
   "license": "ISC",
   "bugs": {
