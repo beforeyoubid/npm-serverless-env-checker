@@ -20,6 +20,14 @@ const parseArgumentsIntoOptions = rawArgs => {
   };
 };
 
+const calcPercentage = (firstValue, secondValue) => {
+  try {
+    return (firstValue/secondValue) * 100;
+  } catch {
+    return null;
+  }
+}
+
 const validateEnvSize = (artifactFilePath = '.serverless', maxEnvSize = 4000) => {
   const maxLambdaEnvVarByteSize = maxEnvSize;
 
@@ -50,6 +58,7 @@ const validateEnvSize = (artifactFilePath = '.serverless', maxEnvSize = 4000) =>
 
   console.log(`${logPrefix} ENV. Size: ${envVarByteSize} bytes`);
   console.log(`${logPrefix} MAX. Size: ${maxLambdaEnvVarByteSize} bytes`);
+  console.log(`${logPrefix} Total used: ${calcPercentage(envVarByteSize, maxLambdaEnvVarByteSize)}%`);
 
   if (envVarByteSize < maxLambdaEnvVarByteSize) {
     console.log(
