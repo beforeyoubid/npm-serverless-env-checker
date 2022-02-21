@@ -1,0 +1,20 @@
+{
+  "name": "npm-env-variable-checker",
+  "version": "1.0.0",
+  "description": "Checks env. variable size of packaged Serverless env. variables. Designed for CI/CD",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/beforeyoubid/npm-env-variable-checker.git"
+  },
+  "keywords": [],
+  "author": "Mitchell Browne - BeforeYouBid",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/beforeyoubid/npm-env-variable-checker/issues"
+  },
+  "homepage": "https://github.com/beforeyoubid/npm-env-variable-checker#readme"
+}
