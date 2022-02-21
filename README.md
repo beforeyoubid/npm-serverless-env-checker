@@ -1,4 +1,4 @@
-# npm-env-variable-checker
+# Serverless Env. Variable Checker
 
 Checks env. variable size of packaged Serverless env. variables.
 
