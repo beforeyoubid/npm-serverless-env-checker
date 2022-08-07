@@ -2,7 +2,7 @@ import arg from 'arg';
 
 const logPrefix = '[ENV-CHECKER]';
 
-const parseArgumentsIntoOptions = rawArgs => {
+const parseArgumentsIntoOptions = (rawArgs: string[]) => {
   const args = arg(
     {
       '--artifact': String,
@@ -20,15 +20,15 @@ const parseArgumentsIntoOptions = rawArgs => {
   };
 };
 
-const calcPercentage = (firstValue, secondValue) => {
+const calcPercentage = (firstValue: number, secondValue: number) => {
   try {
-    return (firstValue/secondValue) * 100;
+    return (firstValue / secondValue) * 100;
   } catch {
     return null;
   }
-}
+};
 
-const validateEnvSize = (artifactFilePath = '.serverless', maxEnvSize = 4000) => {
+const validateEnvSize = (artifactFilePath = '.serverless', maxEnvSize = 4000): void => {
   const maxLambdaEnvVarByteSize = maxEnvSize;
 
   let serverlessJsonOutput;
@@ -64,7 +64,7 @@ const validateEnvSize = (artifactFilePath = '.serverless', maxEnvSize = 4000) =>
     console.log(
       `${logPrefix} SUCCESS: ENV. variables (${envVarByteSize}) within MAX. size (${maxLambdaEnvVarByteSize})`
     );
-    return 'success';
+    return;
   }
 
   throw new Error(
@@ -72,9 +72,20 @@ const validateEnvSize = (artifactFilePath = '.serverless', maxEnvSize = 4000) =>
   );
 };
 
-export const envChecker = args => {
+export const envChecker = (args: string[]) => {
   const options = parseArgumentsIntoOptions(args);
   const { artifact, maxEnvSize } = options;
 
   return validateEnvSize(artifact, maxEnvSize);
 };
+
+/**
+ * check the serverless artifact to ensure the environment variables don't exceed maximum capacity for lambda;
+ *
+ * throws an error if exceeding `maxEnvSize`
+ * @param serverlessArtifactPath the filepath of the artifact folder; defaults to `.serverless`
+ * @param maxEnvSize the maximum environment variable size; defaults to `4000`
+ */
+export default function CheckServerlessEnvironmentSize(serverlessArtifactPath = '.serverless', maxEnvSize = 4000) {
+  return validateEnvSize(serverlessArtifactPath, maxEnvSize);
+}

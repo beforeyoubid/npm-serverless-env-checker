@@ -7,6 +7,7 @@ Designed to support the CI/CD process to ensure env variables packaged and deplo
 ## Commands
 
 `--artifact`: specify path to the serverless package output serverless-state.json path, defaults to .serverless (default serverless package output path)
+
 `--maxEnvSize`: specify max. env. variable size allowed, defaults to 4000 bytes
 
 ## Local Development
