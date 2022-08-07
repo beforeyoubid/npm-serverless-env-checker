@@ -1,0 +1,11 @@
+{
+    "service": {
+      "provider": {
+        "environment": {
+          "NODE_ENV": "production",
+          "LOG_LEVEL": "info",
+          "SOME_KEY": "ABCDEFJKJDHBFKJDBCKJBDCKJBDCKJBDCKJBDCKJBDCKJBDKCJBDKCJBDKCJBDKCJbgvSKJDvcbsKjdcbsdkjcbskdjcbsdkjcbsdk;ljcbsdkcj;bsdkcjbsdc;kjbDSck;jlwedbgfouwiebcsdjivbWEOJFBDSK;JVsdkFL;JBewqfo'ibewdf;kljdsbfwsJ;LKDFSBWEDj;fbweojfb"
+        }
+      }
+    }
+  }
