@@ -64,6 +64,7 @@ const validateEnvSize = (artifactFilePath = '.serverless', maxEnvSize = 4000): v
     console.log(
       `${logPrefix} SUCCESS: ENV. variables (${envVarByteSize}) within MAX. size (${maxLambdaEnvVarByteSize})`
     );
+    return;
   }
 
   throw new Error(
