@@ -1,1 +1,7 @@
 node_modules
+dist
+junit.xml
+
+module_test/storage
+module_test/yarn.lock
+yarn-error.log
