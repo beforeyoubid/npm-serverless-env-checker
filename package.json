@@ -8,6 +8,7 @@
     "lint": "eslint '**/*.{ts,tsx,js,jsx}' --quiet",
     "test": "jest",
     "test:ci": "jest --coverage",
+    "ts": "tsc",
     "build": "rimraf dist && npm run build:types && npm run build:js && cp -r bin dist/bin",
     "build:types": "tsc --emitDeclarationOnly --declaration --project tsconfig.build.json",
     "build:js": "swc src --out-dir dist --extensions \".ts,.tsx\" --source-maps inline --ignore=.spec.js",
