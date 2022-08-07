@@ -99,7 +99,7 @@ jobs:
             cd module_test
             yarn install --registry http://localhost:4873
             yarn test
-            yarn serverless-env-checker --artifact=module_test\fake-serverless
+            yarn serverless-env-checker --artifact=module_test/fake-serverless
       - save_cache:
           key: node_modules-{{ checksum "yarn.lock" }}
           paths:
