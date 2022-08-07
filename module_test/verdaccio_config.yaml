@@ -1,0 +1,13 @@
+storage: ./storage
+
+uplinks:
+  npmjs:
+    url: https://registry.npmjs.org/
+
+packages:
+  '@beforeyoubid/serverless-env-checker':
+    access: $all
+    publish: $anonymous
+  '**':
+    access: $all
+    proxy: npmjs
