@@ -98,7 +98,15 @@ jobs:
           command: |
             cd module_test
             yarn install --registry http://localhost:4873
+      - run:
+          name: Test module import
+          command: |
+            cd module_test
             yarn test
+      - run:
+          name: Test module as CLI tool
+          command: |
+            cd module_test
             yarn serverless-env-checker --artifact=module_test/fake-serverless
       - save_cache:
           key: node_modules-{{ checksum "yarn.lock" }}
