@@ -22,11 +22,11 @@ const parseArgumentsIntoOptions = (rawArgs: string[]) => {
 
 const calcPercentage = (firstValue: number, secondValue: number) => {
   try {
-    return (firstValue/secondValue) * 100;
+    return (firstValue / secondValue) * 100;
   } catch {
     return null;
   }
-}
+};
 
 const validateEnvSize = (artifactFilePath = '.serverless', maxEnvSize = 4000): void => {
   const maxLambdaEnvVarByteSize = maxEnvSize;
@@ -80,7 +80,7 @@ export const envChecker = (args: string[]) => {
 
 /**
  * check the serverless artifact to ensure the environment variables don't exceed maximum capacity for lambda;
- * 
+ *
  * throws an error if exceeding `maxEnvSize`
  * @param serverlessArtifactPath the filepath of the artifact folder; defaults to `.serverless`
  * @param maxEnvSize the maximum environment variable size; defaults to `4000`
