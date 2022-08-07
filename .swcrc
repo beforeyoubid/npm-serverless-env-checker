@@ -16,5 +16,6 @@
     "externalHelpers": false,
     "keepClassNames": false
   },
+  "exclude": [".test.ts"],
   "minify": false
 }
