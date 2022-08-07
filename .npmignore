@@ -11,3 +11,4 @@ test
 .eslintignore
 .eslintrc
 .circleci
+dist/*/__tests__
