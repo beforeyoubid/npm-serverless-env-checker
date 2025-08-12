@@ -1,17 +1,17 @@
 {
   "name": "@beforeyoubid/serverless-env-checker",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Checks env. variable size of packaged Serverless env. variables. Designed for CI/CD",
   "main": "dist/checker.js",
   "types": "dist/checker.d.ts",
+  "type": "module",
   "scripts": {
     "lint": "eslint '**/*.{ts,tsx,js,jsx}' --quiet",
     "test": "jest",
     "test:ci": "jest --coverage",
     "ts": "tsc",
-    "build": "rimraf dist && npm run build:types && npm run build:js && cp -r bin dist/bin",
-    "build:types": "tsc --emitDeclarationOnly --declaration --project tsconfig.build.json",
-    "build:js": "swc src --out-dir dist --extensions \".ts,.tsx\" --source-maps inline --ignore=.spec.js",
+    "build": "rimraf dist && npm run build:ts && cp -r bin dist/bin",
+    "build:ts": "tsc",
     "build-and-publish": "npm run build && npm publish --access public",
     "build-and-publish-dryrun": "npm run build && npm publish --dry-run",
     "build-and-publish-dryrun-ci": "npm run build && npm publish --registry http://localhost:4873"
@@ -39,14 +39,13 @@
     "url": "https://github.com/beforeyoubid/npm-serverless-env-checker/issues"
   },
   "homepage": "https://github.com/beforeyoubid/npm-serverless-env-checker#readme",
+  "engines": {
+    "node": ">=16"
+  },
   "dependencies": {
-    "arg": "5.0.2",
-    "esm": "^3.2.25"
+    "arg": "5.0.2"
   },
   "devDependencies": {
-    "@swc/cli": "^0.1.57",
-    "@swc/core": "^1.2.224",
-    "@swc/jest": "^0.2.22",
     "@types/jest": "^28.1.6",
     "@types/node": "^18.6.4",
     "@typescript-eslint/eslint-plugin": "^5.32.0",
