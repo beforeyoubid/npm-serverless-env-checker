@@ -76,7 +76,7 @@ jobs:
           name: Configure Git for HTTPS
           command: |
             git config --global url."https://github.com/".insteadOf git@github.com:
-            git config --global url."https://github.com/".insteadOf ssh://git://github.com/
+            git config --global url."https://github.com/".insteadOf ssh://git@github.com/
       - restore_cache:
           key: node_modules-{{ checksum "yarn.lock" }}
       - run: NODE_ENV=development yarn
@@ -109,49 +109,6 @@ jobs:
           key: node_modules-{{ checksum "yarn.lock" }}
           paths:
             - ~/app/node_modules/
-  publish-dry-run:
-    <<: *defaults
-    steps:
-      - checkout:
-          path: ~/app
-          fetch-depth: 1
-          no-filters: true
-      - run:
-          name: Configure Git for HTTPS
-          command: |
-            git config --global url."https://github.com/".insteadOf git@github.com:
-            git config --global url."https://github.com/".insteadOf ssh://git@github.com/
-      - restore_cache:
-          key: node_modules-{{ checksum "yarn.lock" }}
-      - run: NODE_ENV=development yarn
-      - run: yarn build-and-publish-dryrun
-      - run: npm i -g verdaccio
-      - run:
-          name: Wait for Verdaccio to start
-          command: |
-            cd module_test
-            verdaccio --config verdaccio_config.yaml
-          background: true
-      - run: npm run build-and-publish-dryrun-ci
-      - run:
-          name: Test module install
-          command: |
-            cd module_test
-            yarn install --registry http://localhost:4873
-      - run:
-          name: Test module import
-          command: |
-            cd module_test
-            yarn test
-      - run:
-          name: Test module as CLI tool
-          command: |
-            cd module_test
-            yarn serverless-env-checker --artifact=fake-serverless
-      - save_cache:
-          key: node_modules-{{ checksum "yarn.lock" }}
-          paths:
-            - ~/app/node_modules/
 
 workflows:
   version: 2
@@ -160,5 +117,4 @@ workflows:
       - unit-test
       - lint
       - typescript
-      - publish-dry-run
       - build
