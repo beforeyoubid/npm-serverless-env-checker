@@ -6,7 +6,7 @@ export default {
   testMatch: ['**/__tests__/**/*.[jt]s?(x)'],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
   transform: {
-    '^.+\\.(t|j)sx?$': ['@swc/jest'],
+    '^.+\\.(t|j)sx?$': 'ts-jest',
   },
   testPathIgnorePatterns: ['bin'],
   coveragePathIgnorePatterns: ['bin'],
