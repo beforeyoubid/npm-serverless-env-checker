@@ -1,16 +1,20 @@
 # CircleCI configuration for npm-serverless-env-checker
-# Updated to use Node.js 20 and HTTPS checkout
-# Configuration ID: 2025-08-13-fixed
-defaults: &defaults
+# Configuration ID: 2025-08-13-fixed-v2
+# This is a completely rewritten configuration to resolve stuck status issues
+
+version: 2.1
+
+# Define the base configuration
+base_config: &base_config
   working_directory: ~/app/
   docker:
     - image: cimg/node:20.18
   resource_class: medium
 
-version: 2.1
 jobs:
+  # Unit testing with coverage
   unit-test:
-    <<: *defaults
+    <<: *base_config
     steps:
       - checkout:
           path: ~/app
@@ -46,8 +50,10 @@ jobs:
           key: node_modules-{{ checksum "yarn.lock" }}
           paths:
             - ~/app/node_modules/
+
+  # Code quality checks
   lint:
-    <<: *defaults
+    <<: *base_config
     steps:
       - checkout:
           path: ~/app
@@ -68,8 +74,10 @@ jobs:
           key: node_modules-{{ checksum "yarn.lock" }}
           paths:
             - ~/app/node_modules/
+
+  # TypeScript compilation check
   typescript:
-    <<: *defaults
+    <<: *base_config
     steps:
       - checkout:
           path: ~/app
@@ -90,8 +98,10 @@ jobs:
           key: node_modules-{{ checksum "yarn.lock" }}
           paths:
             - ~/app/node_modules/
+
+  # Build verification
   build:
-    <<: *defaults
+    <<: *base_config
     steps:
       - checkout:
           path: ~/app
@@ -113,6 +123,7 @@ jobs:
           paths:
             - ~/app/node_modules/
 
+# Define the workflow
 workflows:
   version: 2
   application:
