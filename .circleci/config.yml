@@ -1,5 +1,6 @@
 # CircleCI configuration for npm-serverless-env-checker
 # Updated to use Node.js 20 and HTTPS checkout
+# Configuration ID: 2025-08-13-fixed
 defaults: &defaults
   working_directory: ~/app/
   docker:

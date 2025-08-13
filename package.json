@@ -11,10 +11,7 @@
     "test:ci": "jest --coverage",
     "ts": "tsc",
     "build": "rimraf dist && npm run build:ts && cp -r bin dist/bin",
-    "build:ts": "tsc",
-    "build-and-publish": "npm run build && npm publish --access public",
-    "build-and-publish-dryrun": "npm run build && npm publish --dry-run",
-    "build-and-publish-dryrun-ci": "npm run build && npm publish --registry http://localhost:4873"
+    "build:ts": "tsc"
   },
   "bin": {
     "serverless-env-checker": "dist/bin/checker.js"
