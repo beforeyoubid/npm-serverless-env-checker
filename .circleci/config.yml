@@ -9,7 +9,10 @@ jobs:
   unit-test:
     <<: *defaults
     steps:
-      - checkout
+      - checkout:
+          path: ~/app
+          fetch-depth: 1
+          no-filters: true
       - restore_cache:
           key: node_modules-{{ checksum "yarn.lock" }}
       - run:
@@ -38,7 +41,10 @@ jobs:
   lint:
     <<: *defaults
     steps:
-      - checkout
+      - checkout:
+          path: ~/app
+          fetch-depth: 1
+          no-filters: true
       - restore_cache:
           key: node_modules-{{ checksum "yarn.lock" }}
       - run: NODE_ENV=development yarn
@@ -52,7 +58,10 @@ jobs:
   typescript:
     <<: *defaults
     steps:
-      - checkout
+      - checkout:
+          path: ~/app
+          fetch-depth: 1
+          no-filters: true
       - restore_cache:
           key: node_modules-{{ checksum "yarn.lock" }}
       - run: NODE_ENV=development yarn
@@ -66,7 +75,10 @@ jobs:
   build:
     <<: *defaults
     steps:
-      - checkout
+      - checkout:
+          path: ~/app
+          fetch-depth: 1
+          no-filters: true
       - restore_cache:
           key: node_modules-{{ checksum "yarn.lock" }}
       - run: NODE_ENV=development yarn
@@ -80,7 +92,10 @@ jobs:
   publish-dry-run:
     <<: *defaults
     steps:
-      - checkout
+      - checkout:
+          path: ~/app
+          fetch-depth: 1
+          no-filters: true
       - restore_cache:
           key: node_modules-{{ checksum "yarn.lock" }}
       - run: NODE_ENV=development yarn
