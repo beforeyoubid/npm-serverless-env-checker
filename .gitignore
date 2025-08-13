@@ -6,3 +6,10 @@ module_test/storage
 module_test/yarn.lock
 yarn-error.log
 coverage
+
+# TypeScript compilation artifacts
+**/*.js
+**/*.d.ts
+!bin/checker.js
+!dist/**/*.js
+!dist/**/*.d.ts

@@ -1,9 +1,9 @@
-import arg from 'arg';
+const arg = require('arg');
 
 const logPrefix = '[ENV-CHECKER]';
 
 const parseArgumentsIntoOptions = (rawArgs: string[]) => {
-  const args = arg(
+  const args = arg.default(
     {
       '--artifact': String,
       '--maxEnvSize': Number,
