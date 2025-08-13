@@ -13,6 +13,11 @@ jobs:
           path: ~/app
           fetch-depth: 1
           no-filters: true
+      - run:
+          name: Configure Git for HTTPS
+          command: |
+            git config --global url."https://github.com/".insteadOf git@github.com:
+            git config --global url."https://github.com/".insteadOf ssh://git@github.com/
       - restore_cache:
           key: node_modules-{{ checksum "yarn.lock" }}
       - run:
@@ -45,6 +50,11 @@ jobs:
           path: ~/app
           fetch-depth: 1
           no-filters: true
+      - run:
+          name: Configure Git for HTTPS
+          command: |
+            git config --global url."https://github.com/".insteadOf git@github.com:
+            git config --global url."https://github.com/".insteadOf ssh://git@github.com/
       - restore_cache:
           key: node_modules-{{ checksum "yarn.lock" }}
       - run: NODE_ENV=development yarn
@@ -62,6 +72,11 @@ jobs:
           path: ~/app
           fetch-depth: 1
           no-filters: true
+      - run:
+          name: Configure Git for HTTPS
+          command: |
+            git config --global url."https://github.com/".insteadOf git@github.com:
+            git config --global url."https://github.com/".insteadOf ssh://git://github.com/
       - restore_cache:
           key: node_modules-{{ checksum "yarn.lock" }}
       - run: NODE_ENV=development yarn
@@ -79,6 +94,11 @@ jobs:
           path: ~/app
           fetch-depth: 1
           no-filters: true
+      - run:
+          name: Configure Git for HTTPS
+          command: |
+            git config --global url."https://github.com/".insteadOf git@github.com:
+            git config --global url."https://github.com/".insteadOf ssh://git@github.com/
       - restore_cache:
           key: node_modules-{{ checksum "yarn.lock" }}
       - run: NODE_ENV=development yarn
@@ -96,6 +116,11 @@ jobs:
           path: ~/app
           fetch-depth: 1
           no-filters: true
+      - run:
+          name: Configure Git for HTTPS
+          command: |
+            git config --global url."https://github.com/".insteadOf git@github.com:
+            git config --global url."https://github.com/".insteadOf ssh://git@github.com/
       - restore_cache:
           key: node_modules-{{ checksum "yarn.lock" }}
       - run: NODE_ENV=development yarn
